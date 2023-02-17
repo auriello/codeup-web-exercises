@@ -7,26 +7,33 @@ alert('Welcome to my website');
 let favColor = prompt("What is your favorite color?");
 alert('Great '+ favColor + ' is my favorite color too!');
 
-let littleMermaid = 3 * 3;
-let BB = 5 * 3;
-let H = 1 * 3;
-let total = littleMermaid + BB + H;
+let cost = 3;
+let littleMermaid = Number(prompt("How many days do you want to rent the Little Mermaid for?"));
+let BB = Number(prompt("How many days do you want to rent BB for?"));
+let H = Number(prompt("How many days do you want to rent Hercules for?"));
+let total =3 * (littleMermaid + BB + H);
 alert('Your final price for movies is '+ total );
 
-let googlePay = 400 * 6;
-let amazonPay = 380 * 4;
-let facebookPay = 350 * 10;
-let total2 = googlePay + amazonPay + facebookPay;
+
+let google = Number( prompt("how man hours did you work at google this week"));
+let amazon = Number( prompt("how man hours did you work at amazon this week"));
+let facebook = Number( prompt("how man hours did you work at facebook this week"));
+
+let total2 = (google * 400) + (amazon * 380) + (facebook * 350);
 alert('Your paycheck will be '+ total2 );
 
-let notFull = true;
-let validSchedule = true;
-let enroll = notFull && validSchedule;
+let notFull = confirm("is the class not full?");
+let notConflict = confirm("Do you have a working schedule for this class?");
+let canEnter = notFull && notConflict;
+alert("Ability to enter the class: " + canEnter);
 
-let quantity = 3;
-let offerNotExpirted = true;
-let premiumMember = false;
-let offer = (quantity>=2 && offerNotExpired)||premiumMember;
+let quanity = Number(prompt("How many items do you have?"));
+let enoughItems = quanity >=2;
+let isNotExpired = confirm("click ok if your offer is not expired");
+let premiumMember = confirm("click of if youre a premium member");
+
+let offerValid = (enoughItems && isNotExpired) || premiumMember;
+alert("Valid discount: " + offerValid);
 
 
 
