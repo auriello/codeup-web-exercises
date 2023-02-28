@@ -19,13 +19,31 @@ let plutoArray = planetsString.split("|");
      * Create a string with <br> tags between each planet. console.log() your
      * results. Why might this be useful?
 
-let planetString = plutoArray
+let brString = plutoArray.join
+
+
+
 
      * BONUS:
      * Create another string that would display your planets in an undordered
      * list. You will need an opening AND closing <ul> tags around the entire
      * string, and <li> tags around each planet.
      */
-let planetString = planetsString.split("<br/>");
-    console.log(plutoArray);
+let brString = plutoArray.join("<br>");
+    console.log(brString);
+
+    // let planetString = planetsString.split("<br/>");
+    // console.log(plutoArray);
+
+    let ulPlanets = "<ul>";
+    let liString;
+    plutoArray.forEach(function (planet){
+        liString = "<li>" + planet + "</li>";
+        ulPlanets += liString;
+        if(planet === plutoArray[plutoArray.length - 1]){
+            ulPlanets += "</ul>"
+        }
+    })
+
+    console.log(ulPlanets);
 })();
