@@ -1,0 +1,22 @@
+h1{
+    background-color:pink;
+    color:teal;
+
+}
+h2{
+    color:deeppink;
+    background-color:deepskyblue;}
+
+ul{
+    color: orangered;
+}
+
+ol{
+    color: goldenrod;
+    background-color: azure;
+}
+
+tr{
+    color: red;
+    text-decoration: underline;
+}
