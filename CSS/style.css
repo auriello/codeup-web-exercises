@@ -42,3 +42,15 @@ body {
     color: peru;
     text-decoration: underline;
 }
+
+a:link{
+    color:peru;
+}
+
+a:visited{
+    color: fuchsia;
+}
+
+a:hover{
+    color:greenyellow;
+}
