@@ -1,0 +1,56 @@
+*{
+    font-family: Impact;
+}
+
+h1{
+    text-align: center;
+    background-color:pink;
+    color:teal;
+
+}
+h2{
+    text-decoration: underline;
+    color:deeppink;
+    background-color:deepskyblue;}
+
+ul{
+    color: orangered;
+    list-style: lower-alpha;
+}
+
+ol{
+    color: goldenrod;
+    background-color: azure;
+    list-style: square;
+}
+
+table, td, th{
+    color: red;
+    text-decoration: underline;
+    padding: 20px;
+}
+
+body {
+    background-image: url("https://www.cabq.gov/artsculture/biopark/images/penguin-cool-facts_baby-penguin-no-polar-bears.jpg");
+    background-color: plum;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-attachment: fixed;
+}
+
+.fancy-Header {
+    color: peru;
+    text-decoration: underline;
+}
+
+a:link{
+    color:peru;
+}
+
+a:visited{
+    color: fuchsia;
+}
+
+a:hover{
+    color:greenyellow;
+}
