@@ -1,6 +1,7 @@
 *{
-    background-color: orchid;
+
     font-weight: bold;
+    color: darkslateblue;
 }
 
 h1{
@@ -13,4 +14,7 @@ h1{
 }
 h2{
     color: palegreen;
+}
+.col-lg-3{
+    text-align: center;
 }
