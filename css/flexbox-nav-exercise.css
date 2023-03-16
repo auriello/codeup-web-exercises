@@ -9,14 +9,9 @@ nav {
     display: flex;
     background-color: gray;
 }
-.alpha {
-    list-style: none;
-    padding: 0;
-    margin: 0;
-    display: flex; /* made unordered list a flex container */
-}
 
-.beta {
+
+ul {
     list-style: none;
     padding: 0;
     margin: 0;
@@ -24,20 +19,22 @@ nav {
     margin-right: auto;
 
 }
-.charlie{
-    display: flex;
-    justify-content: space-evenly;
-}
-p{
-    display: flex;
 
-
+.logo{
+    padding-left: 375px;
+    padding-right: 375px;
 }
-nav a {
+
+ a {
+
     text-decoration: none;
     color: black;
     display: inline-block; /* inline-block to increase clickable area beyond the text */
     padding: 1em; /* increases clickable area of anchor tags on all sides by 1em */
 }
 
+ a:hover{
+     text-decoration: underline;
+     color: blue;
+ }
 /*the only things i need are *,nav,.logo,ul,a, a:hover
