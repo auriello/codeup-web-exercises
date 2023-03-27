@@ -18,9 +18,26 @@ $(function(){
 // $('p').css('background', 'pink');
 // $('li').css('background', 'salmon');
 
-let last =$('h1').html();
-alert(last);
+// let last =$('h1').html();
+// alert(last);
+//
+//
+//
+// $('p,li,h1').css("background", 'yellow');
 
+$('h1').click(function() {
+    $('h1').css('background', 'hotpink');
+});
 
+$('p').dblclick(function() {
+    $('p').css('font-size', '18px');
+});
 
-$('p,li,h1').css("background", 'yellow');
+$('li').hover(
+    function() {
+        $(this).css('background-color', 'red');
+    },
+    function() {
+        $(this).css('background-color', 'black');
+    }
+);
