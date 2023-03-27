@@ -35,9 +35,9 @@ $('p').dblclick(function() {
 
 $('li').hover(
     function() {
-        $(this).css('background-color', 'red');
+        $(this).css('color', 'red');
     },
     function() {
-        $(this).css('background-color', 'black');
+        $(this).css('color', 'black');
     }
 );
