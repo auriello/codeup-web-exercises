@@ -17,7 +17,7 @@
         }
         dl{
             text-align: center;
-            font-weight: bold;
+            /*font-weight: bold;*/
             color: #9d85fd;
             font-size: 22px;
         }
@@ -33,6 +33,10 @@
             text-align: center;
 
         }
+        h3{
+            color: white;
+        }
+
     </style>
 </head>
 <body>
@@ -69,6 +73,33 @@
 
     <dt>10. Will I see any animals at the parks?</dt>
     <dd class="invisible">There are wildlife present at all national parks. To see the most wildlife national parks that cover large forest areas are those you should visit. Yellowstone National Park in Wyoming is a great park to see lots of wildlife.</dd>
+
+
+    <h3 id="nationalyellow">Yellowstone National Park Facts</h3>
+    <ul id="national-parks">
+        <li>1. Yellowstone is larget than Rhode Island and Delware combined: 3,472 square miles</li>
+        <li>2. There are more than 10,000 geysers, hot springs, mud spots, and fumaroles.</li>
+        <li>3. There are more than 500 active geysers at Yellowstone</li>
+        <li class="last">4. Yellowstone has the largest high elevation lake in North America</li>
+    </ul>
+
+    <h3>Yosemite National Park facts</h3>
+    <ul id="state-parks-texas">
+        <li>1. Yosemite is the nations third-largest national park.</li>
+        <li>2. The rock formations on Yosemite glow like fire at sunset.</li>
+        <li>3. Yosemite is home to one of the tallest waterfalls in the world, Yosemite Falls.</li>
+        <li class="last">4. The only national park that bid to host the winter Olympics in 1932.</li>
+    </ul>
+
+    <h3>Mammoth Cave National Park Facts</h3>
+    <ul id="mammoth">
+        <li>1. Home to the worlds longest cave system, more than 400 miles long.</li>
+        <li>2. Mammoths once roamed the land, hence the name.</li>
+        <li>3. The oldest parts of the caves are at least 10 million years old.</li>
+        <li class="last">4. An endagered cave shrimp lives at Mammoth Cave and no where else on Earth.</li>
+    </ul>
+
+
     <script>
     let answer = $('invisible');
     answer.click(function (){
@@ -78,6 +109,7 @@
 </dl>
 <div class="container">
 <button id="tgbn">toggle data</button>
+    <button id="click">change yellow</button>
 </div>
 
 <script src="https://code.jquery.com/jquery-3.6.4.js" integrity="sha256-a9jBBRygX1Bh5lt8GZjXDzyOB+bWve9EiO7tROUtj/E=" crossorigin="anonymous"></script>
@@ -89,12 +121,41 @@
         $('dd').toggleClass('invisible');
     })
 
+    $('#click').click(function(){
+        $('.last').css('background-color', '#FF0');
+    })
 
+    // another way to highlight the last li tag in the ul, well this was the more correct way per the lesson, both ways do the same thing ! :)
 
-//     bonus question
+    // $('#click').click(function(){
+    //     $('ul').each(function(){
+    //         $(this).children().last().css('background-color', 'yellow');
+    //     })
+    // })
+
+    $('h3').click(function(){
+        $('li').css('font-weight', 'bold');
+    })
+
+    $('li').click(function(){
+        $('ul').each(function (){
+            // the reason that a second function is nested within the original function is because we know we want our each to do something else
+            $(this).children().first().css('color', 'blue')
+        })
+
+    })
+
+//     another way to do this question
+//     $('li')
+
+//     bonus question #1
     $('dt').click(function (){
         $(this).css('background', 'hotpink')
     })
+
+
+//     bonus question #2
+
 </script>
 </body>
 </html>

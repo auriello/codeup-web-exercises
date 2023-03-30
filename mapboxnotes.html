@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>First Mapbox Map</title>
+  <!-- Mapbox JS WITHOUT THIS YOUR MAP WONT SHOW UP-->
+  <script src='https://api.mapbox.com/mapbox-gl-js/v2.10.0/mapbox-gl.js'></script>
+  <!-- Mapbox CSS WITHOUT THIS YOUR MAP WONT SHOW UP-->
+  <link href='https://api.mapbox.com/mapbox-gl-js/v2.10.0/mapbox-gl.css' rel='stylesheet' />    <style>
+  #map {
+    /* the width and height may be set to any size MAKE SURE TO SET A WIDTH AND HEIGHT EACH TIME YOU CREATE A MAP ON AN HTML PAGE */
+    width: 100%;
+    height: 700px;
+  }
+</style>
+</head>
+<body>
+
+<h1>My First Mapbox Map!</h1>
+
+<!-- The HTML element that serves as the Mapbox container -->
+<!--YOU MUST CREATE A DIV WITH AN ID OF MAP TO LET THE SYSTEM KNOW WHERE THE MAP IS GOING.-->
+<div id='map'></div>
+
+<!--CREATE AND SAVE YOUR KEYS ONTO THE JS FILE AND MAKE SURE IT IS LINKED ONTO THE HTML PAGE. WITHOUT LINKING THIS SCRIPT TAG YOUR MAP WILL NOT SHOW UP-->
+<script src="js/keys.js"></script>
+<script src="js/mapbox-geocoder.js"></script>
+<!-- Custom JS -->
+<!--MAKE SURE YOU STORE YOUR KEY IN A CONST VARIABLE ON THE KEYS.JS FILE -->
+
+<!--MAPBOX GL MAP-->
+
+<script>
+  mapboxgl.accessToken = MAPBOX_TOKEN;
+  var map = new mapboxgl.Map({
+    container: 'map', // container ID
+    style: 'mapbox://styles/mapbox/streets-v11', // style URL
+    zoom: 10, // starting zoom
+    center: [-96.7970, 32.7767] // [lng, lat]
+  });
+
+  // MAPBOX GL MARKER
+
+
+  // without a set long and lat your marker doesnt know where to go
+  // setting a marker object
+  let marker = new mapboxgl.Marker()
+          // setting marker object location
+          .setLngLat([-96.7970, 32.7767]).
+          //         adding the marker to map
+          addTo(map);
+
+//   MAPBOX GL POPUP
+//   setting the popup object
+  let popup = new mapboxgl.Popup()
+          // setting location of pop up
+          .setLngLat([-96.7970, 32.7767])
+          // setting the content on my pop up
+          .setHTML("<h1>Dallas</h1>")
+  // this sets up popup on marker, the popup will only appear when marker is clicked on
+  marker.setPopup(popup);
+
+
+//   MAPBOX GL GEOCODER
+ let currentLocation = (geocode("Allen", MAPBOX_TOKEN));
+
+
+ // THIS FUNCTION BELOW CONSOL LOGS THE LONG & LAT (the results)
+ currentLocation.then(function(results){
+   console.log(results);
+ })
+
+
+  new mapboxgl.Map({
+    container: 'map', // container ID
+    style: 'mapbox://styles/mapbox/streets-v11', // style URL
+    zoom: 10, // starting zoom
+    center: [results[0], resutls[1]] // [lng, lat]
+  });
+
+
+
+
+</script>
+</body>
+</html>
+
