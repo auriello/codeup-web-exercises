@@ -7,24 +7,24 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>MAPBOX MAPS API EXERCISE</title>
 
-
-
-
 <!--    THIS SCRIPT TAG IS NEEDED FOR JS TO WORK-->
     <script src='https://api.mapbox.com/mapbox-gl-js/v2.13.0/mapbox-gl.js'></script>
 <!--    THIS SCRIPT TAG IS NEEDED FOR THE MAP TO ACTUALLY SHOW-->
     <link href='https://api.mapbox.com/mapbox-gl-js/v2.13.0/mapbox-gl.css' rel='stylesheet' />
-    <style>
-        #map {
-            height: 100%;
-            width: 800px;
 
+    <style>
+        p {
+            color: deeppink;
+            font-weight: bolder;
         }
     </style>
 </head>
+
 <body>
 
-<h1>Kickin Chicken</h1>
+<label for="search"></label>
+<input id="search">
+<button id="searchme" type="button">Search</button>
 
 
 <!--REMEMBER TO ALWAYS PUT THE ID MAP IN A DIV, THIS IS HOW THE SYSTEM KNOWS WHERE TO PUT THE MAP ON YOUR PAGE-->
@@ -46,25 +46,103 @@
 <!--</script>-->
 
 
-<div id='map' style='width: 100%; height: 500px;'></div>
+<div id='map' style='width: 500px; height: 500px;'></div>
 <script>
     mapboxgl.accessToken = MY_TOKEN;
     const map = new mapboxgl.Map({
         container: 'map', // container ID
         style: 'mapbox://styles/mapbox/streets-v12', // style URL
         center: [-79.991311, 32.821659, ], // starting position [lng, lat]
-        zoom: 8, // starting zoom
+        zoom: 10, // starting zoom
     });
 
 //     mapbox gl marker//
 
-    var marker = new mapboxgl.Marker()
+    // var marker = new mapboxgl.Marker()
+    //
+    //     .setLngLat([-79.991311, 32.821659])
+    //
+    //     .addTo(map);
 
-        .setLngLat([-79.991311, 32.821659])
+//     mapbox marker popup
 
-        .addTo(map);
+    // let popup = new mapboxgl.Popup()
+    //     // setting location of pop up
+    //     .setLngLat([-79.991311, 32.821659])
+    //     // setting the content on my pop up
+    //     .setHTML("<p class='wangs'>Kicken Chicken</p>")
+    // // this sets up popup on marker, the popup will only appear when marker is clicked on
+    // marker.setPopup(popup);
 
+
+
+
+    //TO DO  Create an array of objects with information about each restaurant to accomplish this. Use a .forEach() loop rather than a for loop.///
+
+    // .each( function(index, element) { /* ... */ } )
+
+    // $('I THINK THIS SHOULD BE MARKER').each(function(index) {
+    //     if (index % 2 !== 0) {
+    //         $(MARKER).addTo('MAP);
+    //     }
+    // });
+
+    let favRes = [
+
+        {'name': 'Kickin Chicken',
+        'description': 'wings are fresh always',
+        'coordinates': ['-79.991311', '32.821659']},
+        {'name': 'Fatz',
+            'description': 'salads are the best',
+            'coordinates': ['-80.02012421570004', '32.873577343406005']},
+        {'name': 'Zaxbys',
+            'description': 'food is good',
+            'coordinates': ['-80.01560040333929', '32.87324949205579']}
+    ]
+
+        // I DONT NEED TO MAKE A MARKER FOR EACH COORDINATE BECAUSE THE FOREACH LOOP WILL TAKE THOSE COORDINATES WHEN IT LOOPS THRU THE ITEMS IN THE ARRAY//
+
+        favRes.forEach(function (reason){
+            // the console log shows all the information from favRes array that's above.
+            // console.log(reason.coordinates);
+            var marker = new mapboxgl.Marker()
+
+                .setLngLat([reason.coordinates[0], reason.coordinates[1]])
+
+                .addTo(map);
+
+            let popup = new mapboxgl.Popup()
+                // setting location of pop up
+                .setLngLat([reason.coordinates[0], reason.coordinates[1]])
+                // setting the content on my pop up
+                // remember to have tags in quotations when you concatenate here
+                .setHTML("<p>" + reason.name + "</p>" + "<p>" + reason.description + "</p>")
+            // this sets up popup on marker, the popup will only appear when marker is clicked on
+            marker.setPopup(popup);
+
+        })
+
+
+
+
+    // SEARCH BOX FUNCTIONALITY
+    document.getElementById("searchme").addEventListener("click", function (){
+        //geocoder function will return a promise, this promise has our location
+        let currentLocation = geocode(document.getElementById("search").value, MY_TOKEN);
+
+        //Use the then function to retrieve the information from your promise
+        currentLocation.then(function (results) {
+            //log out my results(the data within my promise)
+            console.log(results)
+            //we set data equal to center of our map
+            map.setCenter([results[0], results[1]])
+
+        })
+    })
 </script>
 </body>
 </html>
+
+
+
 
