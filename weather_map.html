@@ -1,0 +1,61 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>WEATHER MAP PROJECT</title>
+
+    <script src='https://api.mapbox.com/mapbox-gl-js/v2.10.0/mapbox-gl.js'></script>
+
+    <link href='https://api.mapbox.com/mapbox-gl-js/v2.10.0/mapbox-gl.css' rel='stylesheet' />
+    <style>
+        #map {
+            /* the width and height may be set to any size */
+            width: 70%;
+            height: 700px;
+        }
+        /*#map1 {*/
+        /*    !* the width and height may be set to any size *!*/
+        /*    width: 100%;*/
+        /*    height: 700px;*/
+        /*}*/
+    </style>
+</head>
+<body>
+
+<div id='map'></div>
+
+<script src="js/keys.js"></script>
+<script src="https://code.jquery.com/jquery-3.6.4.js" integrity="sha256-a9jBBRygX1Bh5lt8GZjXDzyOB+bWve9EiO7tROUtj/E=" crossorigin="anonymous"></script>
+<script src="js/mapbox-geocoder.js"></script>
+
+<script>
+    //search for methods in mapbox api
+    //https://docs.mapbox.com/api/search/search/?q=draggabl%3B&size=n_10_n
+    mapboxgl.accessToken = MAPBOX_TOKEN;
+    let map = new mapboxgl.Map({
+            //setting the location for my map depending on the id in my html
+            container: 'map', // container ID
+            //this is setting my mapboxgl styling
+            style: 'mapbox://styles/mapbox/streets-v11', // style URL
+            //this decides how zoomed in my map is
+            zoom: 10, // starting zoom
+            //this adds the center to my map
+            center: [-96.7970, 32.7767] // [lng, lat]
+        })
+
+    $.get("http://api.openweathermap.org/data/2.5/forecast", {
+        APPID: OPEN_WEATHER_APPID,
+        q:     "Charleston, US",
+        units: "imperial"
+    }).done(function(data) {
+        console.log(data);
+        console.log(data.list);
+        for (let i = 0; i <=39; i+=8){
+            console.log(data.list[i]);
+        }})
+</script>
+</body>
+</html>
