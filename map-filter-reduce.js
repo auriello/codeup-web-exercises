@@ -68,3 +68,7 @@ const instructors = users.reduce((finalString, user) => {
 
 }, 'Your instructors are: ')
 console.log(instructors);
+
+
+
+//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
