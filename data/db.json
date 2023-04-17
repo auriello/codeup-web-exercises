@@ -1,0 +1,49 @@
+{
+  "posts": [
+    {
+      "id": 1,
+      "title": "json-server",
+      "author": "typicode"
+    },
+    {
+      "title": "me",
+      "author": "janelle",
+      "id": 3
+    },
+    {
+      "title": null,
+      "author": null,
+      "id": 4
+    },
+    {
+      "title": null,
+      "author": null,
+      "id": 5
+    },
+    {
+      "title": null,
+      "author": null,
+      "id": 6
+    },
+    {
+      "title": "me",
+      "author": "blah",
+      "id": 7
+    },
+    {
+      "title": "blah",
+      "author": "blah",
+      "id": 8
+    },
+    {
+      "title": null,
+      "author": null,
+      "id": 9
+    },
+    {
+      "title": null,
+      "author": null,
+      "id": 10
+    }
+  ]
+}
